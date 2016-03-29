@@ -1,7 +1,9 @@
 
-flight-classifier
+* flight-classifier: Overview
 
-Simple python to analyze dump1090 csvs. Uses FAA reg data to lookup owners and plot in-air times
+This is a simple project I wrote to help analyze planes that don't report their position info in dump1090 csv files. It uses FAA owner registration information to pull out details of US flights, and does a lookup on ICAO to locate the country of registration for foreign flights. The plotter plots the amount of time each plane was seen to give a simple estimate of activity.
+
+
 
 
 * Data
