@@ -1,0 +1,27 @@
+
+flight-classifier
+
+Simple python to analyze dump1090 csvs. Uses FAA reg data to lookup owners and plot in-air times
+
+
+* Data
+This python lib uses a few types of data to do its work: dump1090 data, FAA registration info, an ICAO lookup table, and a user-defined table to classify planes. 
+
+** Dump1090 Data: 2016 Superbowl Flights
+
+This script expects that you have a dump1090 dump file in csv format that you want to inspect. Dump1090 puts out a simple CSV format with one sample point per line. A few different types of samples show up in this file.
+
+An example dump file is included in this project. It's from a capture I did of the San Francisco Bay Area the night of the 2016 Superbowl. It's compressed via xz. The setup script will uncompress this for you, assuming you have xz installed.
+
+** FAA Registration Info
+The FAA provides a nice dump of all registered planes in the US. It's a big heap of data, but the main thing I use it for is associating an owner with an ICAO hex identifier (plus the tailfin). 
+
+The script in the setup directory should give an example for downloading the data and extracting the MASTER.txt file. You will need to update the name of the zip file it downloads, as these change every time the FAA releases a new database (every few weeks).
+
+** ICAO Country Code Conversion Table
+Blocks of ICAO hex codes are assigned to different countries. I haven't found a good site that keeps an updated list of these ranges, but [[http://www.aerotransport.org/html/ICAO_hex_decode.html][AeroTransport.org]] does have a table that is fairly detailed. I extracted the info from their page and put it in a lookup table that makes it easy to find which country a plane is from.
+
+** Classification Table
+I needed a simple way to lump several types of planes together, so I made a simple table with three columns: the classification of a plane, a subclassification field, and the owner field. The subclassification field is mostly there because a number of owners are LLC names that obscure who really uses the planes.
+
+
