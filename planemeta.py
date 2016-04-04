@@ -29,9 +29,9 @@ class FAAInfoLookup:
 
     # Parse the master faa file and lookup planes using the 7th and 34th cols
     # note: throws a lot of data away, may be better to awk it out
-    def load(self, fn="data/MASTER.txt"):
+    def load(self, fn="data/MASTER.txt", flight_ids=[]):
         with open(fn) as f:
-            r.readline() # first line is meta, skip it
+            f.readline() # first line is meta, skip it
             for line in f:
                 csv=line.rstrip().split(',')
                 id=csv[33].rstrip()
