@@ -27,3 +27,13 @@ Blocks of ICAO hex codes are assigned to different countries. I haven't found a 
 I needed a simple way to lump several types of planes together, so I made a simple table with three columns: the classification of a plane, a subclassification field, and the owner field. The subclassification field is mostly there because a number of owners are LLC names that obscure who really uses the planes.
 
 
+
+* Analysis Tools
+
+There are a few different end tools here that I've written for my own analysis work. So far there are two categories: dump1090 and drones.
+
+- dump1090 work
+  - *plot_inflights.py*: This takes a dump1090 file and then plots out the in-air times for the flights. It uses the classification library to color different types of planes as you want.
+- Drone work
+  - *plot_drones.py*: Pulls drones out of the Master file and then plots when different orgs first registered them.
+  - *tally_drones.py*: Analyzes the FAA data and pulls out a sorted list of the number of drones different owners have 
